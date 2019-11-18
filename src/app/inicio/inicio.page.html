@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+     <ion-menu-button auto-hide ></ion-menu-button>
+   </ion-toolbar>
+</ion-header>
+
+<ion-menu side="end" type="push">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-button color="light">Inicio</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button color="secondary" href="aprovados">Aprovadas</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button color="danger" href="home">Sair</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet main></ion-router-outlet>
+
+
+
+<ion-content>
+
+   <ion-list>
+    <ion-card *ngFor="let formulario  of listaFormulario | async">
+      <ion-item>
+      <ion-label><br><b>Eu:</b> <br>{{ formulario.nome }} <br><br> <b>Portador(a) do RG ou CPF</b>  <br>{{ formulario.cpf }}<br><br>
+        <b> autorizo a saída do(a) aluno(a)</b> <br>{{formulario.saida}}  <br><br> <b> matriculado(a) no </b> <br>{{formulario.serie}} <br><br>
+        <b> ano do curso técnico em </b> <br> {{formulario.curso}}  <br><br> <b> pelo motivo </b> <br>{{formulario.motivo}} <br><br>
+        <b> Grau de parentesco </b> <br> {{formulario.parentesco}}  <br><br>
+        <b> Data </b> <br> {{formulario.data}}  <br><br>
+        <b> Horário </b> <br> {{formulario.horario}} <br><br>
+        
+       </ion-label>
+      </ion-item>
+  </ion-card>
+</ion-list>
+</ion-content>
